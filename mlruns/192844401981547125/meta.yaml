@@ -1,0 +1,6 @@
+artifact_location: file:///C:/data/projects/comment_analysis/mlruns/192844401981547125
+creation_time: 1737727454953
+experiment_id: '192844401981547125'
+last_update_time: 1737727454953
+lifecycle_stage: active
+name: dvc-pipeline

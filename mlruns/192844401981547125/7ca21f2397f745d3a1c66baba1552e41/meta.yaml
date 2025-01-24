@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/data/projects/comment_analysis/mlruns/192844401981547125/7ca21f2397f745d3a1c66baba1552e41/artifacts
+end_time: 1737728200745
+entry_point_name: ''
+experiment_id: '192844401981547125'
+lifecycle_stage: active
+run_id: 7ca21f2397f745d3a1c66baba1552e41
+run_name: magnificent-hog-288
+run_uuid: 7ca21f2397f745d3a1c66baba1552e41
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1737728194674
+status: 3
+tags: []
+user_id: Appsquadz

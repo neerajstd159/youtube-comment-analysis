@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/data/projects/comment_analysis/mlruns/192844401981547125/40a89e15963d4f069c3c83d9b1794382/artifacts
+end_time: 1737727455997
+entry_point_name: ''
+experiment_id: '192844401981547125'
+lifecycle_stage: active
+run_id: 40a89e15963d4f069c3c83d9b1794382
+run_name: nervous-bass-117
+run_uuid: 40a89e15963d4f069c3c83d9b1794382
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1737727455766
+status: 3
+tags: []
+user_id: Appsquadz

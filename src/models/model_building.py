@@ -55,15 +55,15 @@ def load_data(path: str) -> pd.DataFrame:
         raise
 
 
-def apply_tfidf(train_df: pd.DataFrame, max_features: int, ngram_range: tuple) -> tuple:
+def apply_tfidf(train_df: pd.DataFrame, max_feature: int, ngram_rang: tuple) -> tuple:
     """Apply tfidf vectorizer to training data"""
     try:
         # split data
-        X_train = train_df['clean_comment'].values
+        X_train = train_df['clean_comment'].fillna("").astype(str).values
         y_train = train_df['category'].values
 
         # vectorizer
-        vectorizer = TfidfVectorizer(max_features=max_features, ngram_range=ngram_range)
+        vectorizer = TfidfVectorizer(max_features=max_feature, ngram_range=ngram_rang)
         X_train_trf = vectorizer.fit_transform(X_train)
         logger.debug('vectorizer transformaion to train data completed')
 
@@ -143,5 +143,5 @@ def main():
         logger.error('Unexpected error occured in model building stage: %s', e)
 
 
-    if __name__ == '__main__':
-        main()
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/data/projects/comment_analysis/mlruns/192844401981547125/3bcd905edf5c4de6a542b8cbf3ec3594/artifacts
+end_time: 1737727521378
+entry_point_name: ''
+experiment_id: '192844401981547125'
+lifecycle_stage: active
+run_id: 3bcd905edf5c4de6a542b8cbf3ec3594
+run_name: adaptable-ox-107
+run_uuid: 3bcd905edf5c4de6a542b8cbf3ec3594
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1737727521071
+status: 3
+tags: []
+user_id: Appsquadz

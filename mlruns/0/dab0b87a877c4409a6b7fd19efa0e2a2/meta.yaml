@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/data/projects/comment_analysis/mlruns/0/dab0b87a877c4409a6b7fd19efa0e2a2/artifacts
+end_time: 1737727272394
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: dab0b87a877c4409a6b7fd19efa0e2a2
+run_name: placid-snail-752
+run_uuid: dab0b87a877c4409a6b7fd19efa0e2a2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1737727272127
+status: 3
+tags: []
+user_id: Appsquadz

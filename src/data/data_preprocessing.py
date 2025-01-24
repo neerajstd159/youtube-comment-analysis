@@ -61,8 +61,8 @@ def preprocess_df(comment: str) -> str:
         comment = re.sub(r'[^a-zA-Z0-9\s,.!?]', '', comment)
 
         # remove some stopwords
-        stopwords = set(stopwords.words('english')) - {'not', 'but', 'however', 'no', 'yet'}
-        comment = ' '.join([word for word in comment.split() if word not in stopwords])
+        custom_stopwords = set(stopwords.words('english')) - {'not', 'but', 'however', 'no', 'yet'}
+        comment = ' '.join([word for word in comment.split() if word not in custom_stopwords])
 
         # apply lemmatization
         lemmatizer = WordNetLemmatizer()

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/data/projects/comment_analysis/mlruns/192844401981547125/1f9716ff63014b498b77f47f594e8b82/artifacts
+end_time: 1737727674159
+entry_point_name: ''
+experiment_id: '192844401981547125'
+lifecycle_stage: active
+run_id: 1f9716ff63014b498b77f47f594e8b82
+run_name: casual-grouse-951
+run_uuid: 1f9716ff63014b498b77f47f594e8b82
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1737727663204
+status: 3
+tags: []
+user_id: Appsquadz

@@ -1,0 +1,1 @@
+{'max_features': 2000, 'ngram_range': [1, 2], 'learning_rate': 0.05, 'max_depth': 20, 'n_estimators': 370}

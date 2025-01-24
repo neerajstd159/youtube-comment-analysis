@@ -86,7 +86,7 @@ def evaluate_model(model, X_test: np.ndarray, y_test:np.ndarray):
     """Evaluate the model and returns classification report and confusion matrics"""
     try:
         y_pred = model.predict(X_test)
-        class_report = classification_report(y_test, y_pred)
+        class_report = classification_report(y_test, y_pred, output_dict=True)
         conf_matrix = confusion_matrix(y_test, y_pred)
 
         logger.debug('model evaluation completed')
@@ -113,8 +113,8 @@ def save_model_info(run_id: str, model_path: str, file_path: str) -> None:
 
 def main():
     # mlflow setup
-    mlflow.set_registry_uri('')
-    mlflow.set_experiment('')
+    mlflow.set_registry_uri('http://ec2-51-20-64-139.eu-north-1.compute.amazonaws.com:5000')
+    mlflow.set_experiment('dvc-pipeline')
 
     with mlflow.start_run() as run:
         try:
@@ -134,16 +134,20 @@ def main():
 
             # load and transform test data
             test_df = load_data(os.path.join(root_dir, 'data/interim/test_processed.csv'))
+            test_df = test_df.dropna()
             X_test = test_df['clean_comment'].values
             y_test = test_df['category'].values
             X_test_trf = vectorizer.transform(X_test)
+            logger.debug('test data loaded and transformed')
 
             # input dataframe for signature and log model
             input_df = pd.DataFrame(X_test_trf.toarray()[:5], columns=vectorizer.get_feature_names_out())
             signature = mlflow.models.infer_signature(input_df, model.predict(X_test_trf[:5]))
+            logger.debug('signature created')
 
             # log model
             mlflow.sklearn.log_model(model, 'lgbm_model', signature=signature, input_example=input_df)
+            logger.debug('model logged to mlflow')
 
             # save model info
             save_model_info(run.info.run_id, 'lgbm_model', 'experiment_info.json')
@@ -161,17 +165,18 @@ def main():
                         f"test_{label}_recall": metrics['recall'],
                         f"test_{label}_f1-score": metrics['f1-score']
                     })
+            logger.debug('classification report logged to mlflow')
 
             # log confusion matrix
-            plt.figure(figsize=(8, 6))
-            sns.heatmap(cm, annot=True, cmap="Blues", fmt='d')
-            plt.title('confusion matrix')
-            plt.xlabel('Predicted')
-            plt.ylabel('Actual')
-            cm_file_path = f'confusion_matrix.png'
-            plt.savefig(cm_file_path)
-            mlflow.log_artifact(cm_file_path)
-            plt.close()
+            # plt.figure(figsize=(8, 6))
+            # sns.heatmap(cm, annot=True, cmap="Blues", fmt='d')
+            # plt.title('confusion matrix')
+            # plt.xlabel('Predicted')
+            # plt.ylabel('Actual')
+            # plt.savefig('confusion_matrix.png')
+            # mlflow.log_artifact('confusion_matrix.png')
+            # plt.close()
+            # logger.debug('confusion matrix logged to mlflow')
 
             # Add important tags
             mlflow.set_tag("model_type", "LightGBM")
